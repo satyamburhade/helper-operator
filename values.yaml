@@ -15,7 +15,7 @@ helper-operator:
         csv: cert-manager-operator.v1.17.0
         source: redhat-operators
         sourceNamespace: openshift-marketplace
-      config:
+      certmanager:
         controllerConfig:
           overrideArgs:
             - '--dns01-recursive-nameservers'
