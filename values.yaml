@@ -1,0 +1,36 @@
+helper-operator:
+  operators:
+    openshift-cert-manager-operator:
+      enabled: true
+      namespace:
+        create: true
+        name: cert-manager-operator
+      operatorgroup:
+        create: true
+        notownnamespace: true
+      subscription:
+        approval: Automatic
+        channel: stable-v1
+        operatorName: openshift-cert-manager-operator
+        csv: cert-manager-operator.v1.17.0
+        source: redhat-operators
+        sourceNamespace: openshift-marketplace
+      config:
+        controllerConfig:
+          overrideArgs:
+            - '--dns01-recursive-nameservers'
+            - '--dns01-recursive-nameservers=208.67.222.222:53,208.67.220.220:53'
+            - '--dns01-recursive-nameservers-only'
+
+helper-status-checker:
+  enabled: true
+  approver: true
+  checks:
+  - operatorName: cert-manager-operator
+    sleeptimer: 60
+    namespace:
+      name: cert-manager-operator
+    serviceAccount:
+      create: true
+      name: status-checker
+

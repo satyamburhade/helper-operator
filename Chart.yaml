@@ -1,0 +1,12 @@
+apiVersion: v2
+appVersion: v1.17.0
+version: v1.17.0
+name: cert-manager
+type: application
+dependencies:
+- name: helper-operator
+  version: 1.0.26
+  repository: https://redhat-cop.github.io/helm-charts
+- name: helper-status-checker
+  version: 4.0.9
+  repository: https://redhat-cop.github.io/helm-charts
