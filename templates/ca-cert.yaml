@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
-  commonName: "{{ .Values.config.clusterName }}"
+  #commonName: "{{ .Values.config.clusterName }}"
   isCA: true
   issuerRef:
     group: cert-manager.io
