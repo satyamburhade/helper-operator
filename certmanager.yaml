@@ -1,0 +1,10 @@
+apiVersion: operator.openshift.io/v1alpha1
+kind: CertManager
+metadata:
+  name: cluster
+spec:
+  controllerConfig:
+    overrideArgs:
+    - --dns01-recursive-nameservers
+    - --dns01-recursive-nameservers=208.67.222.222:53,208.67.220.220:53
+    - --dns01-recursive-nameservers-only
